@@ -46,7 +46,7 @@ shinyServer(function(input, output) {
             }
         }
         else if (baseIn == "Dec"){
-            if(is.integer(input)){
+            if(is.integer(as.integer(input))){
                 if (baseOut == "Bin"){
                     intToBin(input)
                 }

@@ -1,0 +1,16 @@
+{
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n# This application can convert two inputs into binary, octal, decimal or\n# hexadecimal outputs.\n# @author: neopanda\n#\n\n#Import library\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n    # Application title\n    titlePanel(\"Base Converter\"),\n    \n    #Summary\n    p(\"You can convert your values into binary, octal, decimal or hexadecimal.\"),\n    p(\"Repository here: \",\n      a(\"https://github.com/neopanda/Developing-Data-Product\",\n        href = \"https://github.com/neopanda/Developing-Data-Product\")\n      ),\n    \n    #Input panel\n    fluidRow(\n        \n        #Input 1\n        column(6,\n           wellPanel(\n            h3(\"Input #1\"),\n            selectInput(\"baseI1\", \"Select your input base\", c(\"Bin\", \"Oct\", \"Dec\", \"Hex\")),\n            textInput(\"input1\", \"Enter here:\"),\n            selectInput(\"baseO1\", \"Select your output base\", c(\"Bin\", \"Oct\", \"Dec\", \"Hex\"))\n           )\n        ),\n        \n        #Input 2\n        column(6,\n           wellPanel(\n                h3(\"Input #2\"),\n                selectInput(\"baseI2\", \"Select your input base\", c(\"Bin\", \"Dec\", \"Hex\", \"ASCII\")),\n                textInput(\"input2\", \"Enter here:\"),\n                selectInput(\"baseO2\", \"Select your output base\", c(\"Bin\", \"Dec\", \"Hex\", \"ASCII\"))\n           )\n        )\n    ),\n    \n    #Output panel\n    fluidRow(\n        \n        #Output 1\n        column(6, \n            wellPanel(\n                h3(\"Output #1\"),\n                verbatimTextOutput('output1')\n            )\n        ),\n        \n        #Output 2\n        column(6, \n           wellPanel(\n               h3(\"Output #2\"),\n               verbatimTextOutput('output2')\n           )\n        )\n    )\n))\n",
+    "created" : 1416790113099.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "3234881246",
+    "id" : "7381894F",
+    "lastKnownWriteTime" : 1416790047,
+    "path" : "~/GitHub/Developing-Data-Product/Base Converter/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

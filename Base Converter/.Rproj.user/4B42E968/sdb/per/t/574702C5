@@ -1,0 +1,16 @@
+{
+    "contents" : "\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n# This application can convert two inputs into binary, octal, decimal or\n# hexadecimal outputs.\n# @author: neopanda\n#\n\n#Import library\nlibrary(shiny)\nlibrary(R.utils)\n\nshinyServer(function(input, output) {\n\n    #Converting function\n    convert <- function(input, baseIn, baseOut){\n        if(baseIn == \"Bin\"){\n            if (baseOut == \"Oct\"){\n                intToOct(strtoi(input, 2L))\n            }\n            else if (baseOut == \"Dec\"){\n                strtoi(input, 2L)\n            }\n            else if (baseOut == \"Hex\"){\n                intToHex(strtoi(input, 2L))\n            }\n            else{\n                intToBin(strtoi(input, 2L))\n            }\n        }\n        else if (baseIn == \"Oct\"){\n            if (baseOut == \"Bin\"){\n                intToBin(strtoi(input, 8L))\n            }\n            else if (baseOut == \"Dec\"){\n                strtoi(input, 8L)\n            }\n            else if (baseOut == \"Hex\"){\n                intToHex(strtoi(input, 8L))\n            }\n            else{\n                intToOct(strtoi(input, 8L))\n            }\n        }\n        else if (baseIn == \"Dec\"){\n            if(is.integer(as.integer(input))){\n                if (baseOut == \"Bin\"){\n                    intToBin(input)\n                }\n                else if (baseOut == \"Oct\"){\n                    intToOct(input)\n                }\n                else if (baseOut == \"Hex\"){\n                    intToHex(input)\n                }\n                else{\n                    input\n                }\n            }\n            else{\n                \"NA\"\n            }\n        }\n        else if (baseIn == \"Hex\"){\n            if (baseOut == \"Bin\"){\n                intToBin(strtoi(input, 16L))\n            }\n            else if (baseOut == \"Oct\"){\n                intToOct(strtoi(input, 16L))\n            }\n            else if (baseOut == \"Dec\"){\n                strtoi(input, 16L)\n            }\n            else{\n                intToHex(strtoi(input, 16L))\n            }\n        }\n    }\n    \n    #Convert output 1\n    output$output1 <- renderText({\n        convert(input$input1, input$baseI1, input$baseO1)\n    })\n    \n    #Convert output 2\n    output$output2 <- renderText({\n        convert(input$input2, input$baseI2, input$baseO2)\n    })\n    \n})\n",
+    "created" : 1416790115762.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "510490773",
+    "id" : "574702C5",
+    "lastKnownWriteTime" : 1416790201,
+    "path" : "~/GitHub/Developing-Data-Product/Base Converter/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
